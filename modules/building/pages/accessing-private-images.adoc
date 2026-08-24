@@ -62,7 +62,9 @@ subjects:
 **** link:https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-rbac/production/base/konflux-releaser-bot-actions.yaml[konflux-releaser-bot-actions]
 **** link:https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-rbac/production/base/konflux-builder-bot-actions.yaml[konflux-builder-bot-actions]
 **** link:https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-rbac/production/base/konflux-externalpuller-bot-actions.yaml[konflux-externalpuller-bot-actions]
-** Tokens can be minted with `kubectl create token konflux-bot-<bot-number> -n <your-namespace> --duration=8760h`
+** Tokens can be minted with 
+[source, bash]
+kubectl create token konflux-bot-<bot-number> -n <your-namespace> --duration=8760h
 ** `--duration` must be specified and can be any value up to 1 year (8760 hours). Users are encouraged to specify the shortest feasible duration
 ** Can authenticate against both the proxy AND the OpenShift API (works like a regular OpenShift service account)
 ** Best for automated systems and CI/CD pipelines
