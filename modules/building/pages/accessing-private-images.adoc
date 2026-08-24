@@ -107,7 +107,7 @@ metadata:
   namespace: <your-namespace>
 ----
 
-. Create a service account token secret:
+. Create a service account token:
 +
 [source,bash]
 ----
