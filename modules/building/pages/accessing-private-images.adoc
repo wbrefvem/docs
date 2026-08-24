@@ -58,7 +58,10 @@ subjects:
 ** Tokens are only issued to service accounts named according to the pattern `konflux-bot-[0-9]` (e.g. `konflux-bot-0`, `konflux-bot-1`, etc)
 ** Any Konflux user who has permission to create service accounts in a namespace can create a `konflux-bot-[0-9]` service account
 ** ClusterRoles of the pattern `konflux-*-bot-actions` can be assigned to the service accounts
-*** Two are currently available: link:https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-rbac/production/base/konflux-releaser-bot-actions.yaml[konflux-releaser-bot-actions] and link:https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-rbac/production/base/konflux-builder-bot-actions.yaml[konflux-builder-bot-actions]
+*** Three are currently available: 
+**** link:https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-rbac/production/base/konflux-releaser-bot-actions.yaml[konflux-releaser-bot-actions]
+**** link:https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-rbac/production/base/konflux-builder-bot-actions.yaml[konflux-builder-bot-actions]
+**** link:https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-rbac/production/base/konflux-externalpuller-bot-actions.yaml[konflux-externalpuller-bot-actions]
 ** Tokens can be minted with `oc create token konflux-bot-<bot-number> -n <your-namespace> --duration=8760h`
 ** `--duration` must be specified and can be any value up to 1 year (8760 hours). Users are encouraged to specify the shortest feasible duration
 ** Can authenticate against both the proxy AND the OpenShift API (works like a regular OpenShift service account)
@@ -98,7 +101,7 @@ For automated access in external systems like Testing Farm or CI/CD pipelines:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: external-puller
+  name: konflux-bot-[0-9]
   namespace: <your-namespace>
 ----
 
@@ -112,7 +115,7 @@ metadata:
   name: external-puller-token
   namespace: <your-namespace>
   annotations:
-    kubernetes.io/service-account.name: external-puller
+    kubernetes.io/service-account.name: konflux-bot-[0-9]
 type: kubernetes.io/service-account-token
 ----
 
@@ -127,7 +130,7 @@ kubectl get secret external-puller-token -n <your-namespace> -o jsonpath='{.data
 +
 [source,bash]
 ----
-podman login -u external-puller image-rbac-proxy.apps.example.com
+podman login -u konflux-bot-[0-9] image-rbac-proxy.apps.example.com
 # When prompted for password, paste the service account token
 ----
 +
