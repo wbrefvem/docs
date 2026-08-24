@@ -121,7 +121,7 @@ oc create token konflux-bot-0 -n <your-namespace> --duration=8760h
 +
 [source,bash]
 ----
-podman login -u konflux-bot-[0-9] image-rbac-proxy.apps.example.com
+podman login -u konflux-bot-0 image-rbac-proxy.apps.example.com
 # When prompted for password, paste the service account token
 ----
 +
