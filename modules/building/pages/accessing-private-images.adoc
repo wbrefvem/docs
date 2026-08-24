@@ -107,23 +107,9 @@ metadata:
 
 . Create a service account token secret:
 +
-[source,yaml]
-----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: external-puller-token
-  namespace: <your-namespace>
-  annotations:
-    kubernetes.io/service-account.name: konflux-bot-[0-9]
-type: kubernetes.io/service-account-token
-----
-
-. Get the service account token from the secret:
-+
 [source,bash]
 ----
-kubectl get secret external-puller-token -n <your-namespace> -o jsonpath='{.data.token}' | base64 -d
+oc create token konflux-bot-<bot-number> -n <your-namespace> --duration=8760h
 ----
 
 . Use the token to authenticate to the registry in your external system:
