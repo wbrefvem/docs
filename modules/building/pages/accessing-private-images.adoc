@@ -64,7 +64,6 @@ subjects:
 **** link:https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-rbac/production/base/konflux-externalpuller-bot-actions.yaml[konflux-externalpuller-bot-actions]
 **** link:https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-rbac/production/base/konflux-integrationtest-bot-actions.yaml[konflux-integrationtest-bot-actions]
 **** link:https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-rbac/production/base/konflux-model-bot-actions.yaml[konflux-model-bot-actions]
-**** link:https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-rbac/production/base/konflux-secrets-bot-actions.yaml[konflux-secrets-bot-actions]
 **** link:https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-rbac/production/base/konflux-viewer-bot-actions.yaml[konflux-viewer-bot-actions]
 ** Only users with the role `konflux-admin-user-actions` can mint tokens. Assuming an SA named `konflux-bot-0`, tokens can then be minted with 
 [source, bash]
