@@ -55,8 +55,8 @@ subjects:
 ** Best for local development and manual testing
 
 * *Service account tokens*:
-** Tokens are only issued to service accounts named according to the pattern `konflux-bot-[0-9]` (e.g. `konflux-bot-0`, `konflux-bot-1`, etc)
-** Any Konflux user who has permission to create service accounts in a namespace can create a `konflux-bot-[0-9]` service account
+** Tokens are only issued to a maximum of three service accounts per namespace, named according to the pattern `konflux-bot-[0-2]` (e.g. `konflux-bot-0`, `konflux-bot-1`, or `konflux-bot-2`)
+** Any Konflux user who has permission to create service accounts in a namespace can create a `konflux-bot-[0-2]` service account
 ** Only ClusterRoles of the pattern `konflux-*-bot-actions` can be assigned to the service accounts, and  when assigning roles, service accounts should follow the principle of least privilege
 ***  The following roles are available: 
 **** link:https://github.com/redhat-appstudio/infra-deployments/blob/main/components/konflux-rbac/production/base/konflux-releaser-bot-actions.yaml[konflux-releaser-bot-actions]
